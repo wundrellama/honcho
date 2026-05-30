@@ -36,7 +36,7 @@ api_key = "dummy"
 
 # --- Embedding ---
 [embedding]
-VECTOR_DIMENSIONS = 1536
+VECTOR_DIMENSIONS = 2560
 MAX_INPUT_TOKENS = 8192
 MAX_TOKENS_PER_REQUEST = 300000
 
@@ -113,7 +113,7 @@ MAX_TOOL_ITERATIONS = 2
 transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
-[dialectic.levels.low.model_config.overrides]
+[dialectic.levels.medium.model_config.overrides]
 base_url = "http://192.168.1.229:11434/v1"
 api_key = "dummy"
 
@@ -124,7 +124,7 @@ MAX_TOOL_ITERATIONS = 4
 transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
-[dialectic.levels.low.model_config.overrides]
+[dialectic.levels.high.model_config.overrides]
 base_url = "http://192.168.1.229:11434/v1"
 api_key = "dummy"
 
@@ -135,7 +135,7 @@ MAX_TOOL_ITERATIONS = 10
 transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
-[dialectic.levels.low.model_config.overrides]
+[dialectic.levels.max.model_config.overrides]
 base_url = "http://192.168.1.229:11434/v1"
 api_key = "dummy"
 
