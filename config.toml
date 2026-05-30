@@ -1,5 +1,5 @@
 # Honcho Configuration File
-# Self-hosted on NAS, LLMs on 192.168.1.182
+# Self-hosted on NAS, LLMs on 192.168.1.229
 
 [app]
 LOG_LEVEL = "INFO"
@@ -32,7 +32,7 @@ ENABLED = false
 DEFAULT_MAX_TOKENS = 2500
 MAX_TOOL_OUTPUT_CHARS = 10000
 MAX_MESSAGE_CONTENT_CHARS = 2000
-OPENAI_API_KEY = "dummy"
+api_key = "dummy"
 
 # --- Embedding ---
 [embedding]
@@ -45,8 +45,8 @@ transport = "openai"
 model = "mradermacher/Qwen3-Embedding-4B-i1-GGUF:Q6_K"
 
 [embedding.model_config.overrides]
-base_url = "http://192.168.1.182:11435/v1"
-OPENAI_API_KEY = "dummy"
+base_url = "http://192.168.1.229:11435/v1"
+api_key = "dummy"
 
 # --- Deriver (background memory extraction) ---
 [deriver]
@@ -67,7 +67,8 @@ transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
 [deriver.model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+base_url = "http://192.168.1.229:11434/v1"
+api_key = "dummy"
 
 # --- Peer Card ---
 [peer_card]
@@ -90,7 +91,7 @@ transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
 [dialectic.levels.minimal.model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+base_url = "http://192.168.1.229:11434/v1"
 
 [dialectic.levels.low]
 MAX_TOOL_ITERATIONS = 5
@@ -101,7 +102,8 @@ transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
 [dialectic.levels.low.model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+base_url = "http://192.168.1.229:11434/v1"
+api_key = "dummy"
 
 [dialectic.levels.medium]
 MAX_TOOL_ITERATIONS = 2
@@ -110,8 +112,9 @@ MAX_TOOL_ITERATIONS = 2
 transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
-[dialectic.levels.medium.model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+[dialectic.levels.low.model_config.overrides]
+base_url = "http://192.168.1.229:11434/v1"
+api_key = "dummy"
 
 [dialectic.levels.high]
 MAX_TOOL_ITERATIONS = 4
@@ -120,8 +123,9 @@ MAX_TOOL_ITERATIONS = 4
 transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
-[dialectic.levels.high.model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+[dialectic.levels.low.model_config.overrides]
+base_url = "http://192.168.1.229:11434/v1"
+api_key = "dummy"
 
 [dialectic.levels.max]
 MAX_TOOL_ITERATIONS = 10
@@ -130,8 +134,9 @@ MAX_TOOL_ITERATIONS = 10
 transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
-[dialectic.levels.max.model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+[dialectic.levels.low.model_config.overrides]
+base_url = "http://192.168.1.229:11434/v1"
+api_key = "dummy"
 
 # --- Summary ---
 [summary]
@@ -146,7 +151,8 @@ transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
 [summary.model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+base_url = "http://192.168.1.229:11434/v1"
+api_key = "dummy"
 
 # --- Dream ---
 [dream]
@@ -163,14 +169,17 @@ transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
 
 [dream.deduction_model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+base_url = "http://192.168.1.229:11434/v1"
+api_key = "dummy"
 
 [dream.induction_model_config]
 transport = "openai"
 model = "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q6_K_XL"
+api_key = "dummy"
 
 [dream.induction_model_config.overrides]
-base_url = "http://192.168.1.182:11434/v1"
+base_url = "http://192.168.1.229:11434/v1"
+api_key = "dummy"
 
 [dream.surprisal]
 ENABLED = false
