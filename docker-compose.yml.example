@@ -34,7 +34,7 @@ services:
       retries: 5
       start_period: 10s
     volumes:
-      - ./config.toml:/app/config.toml:ro
+      - /share/ZFS20_DATA/Container/honcho/config.toml:/app/config.toml:ro
     environment:
       - DB_CONNECTION_URI=postgresql+psycopg://postgres:postgres@database:5432/postgres
       - CACHE_URL=redis://redis:6379/0?suppress=true
@@ -62,7 +62,7 @@ services:
     #   - .:/app
     #   - venv:/app/.venv
     volumes:
-      - ./config.toml:/app/config.toml:ro
+      - /share/ZFS20_DATA/Container/honcho/config.toml:/app/config.toml:ro
     environment:
       - DB_CONNECTION_URI=postgresql+psycopg://postgres:postgres@database:5432/postgres
       - CACHE_URL=redis://redis:6379/0?suppress=true
