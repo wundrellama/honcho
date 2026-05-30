@@ -32,7 +32,7 @@ ENABLED = false
 DEFAULT_MAX_TOKENS = 2500
 MAX_TOOL_OUTPUT_CHARS = 10000
 MAX_MESSAGE_CONTENT_CHARS = 2000
-OPENAI_API_KEY = ""
+OPENAI_API_KEY = "dummy"
 
 # --- Embedding ---
 [embedding]
@@ -46,6 +46,7 @@ model = "mradermacher/Qwen3-Embedding-4B-i1-GGUF:Q6_K"
 
 [embedding.model_config.overrides]
 base_url = "http://192.168.1.182:11435/v1"
+OPENAI_API_KEY = "dummy"
 
 # --- Deriver (background memory extraction) ---
 [deriver]
