@@ -20,7 +20,7 @@ services:
       redis:
         condition: service_healthy
     ports:
-      - "8181:8000"
+      - "8182:8000"
     healthcheck:
       test:
         [
