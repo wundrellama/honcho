@@ -33,14 +33,13 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
-    # -- Development: mount source for live reload --
-    # volumes:
-    #   - .:/app
-    #   - venv:/app/.venv
+    volumes:
+      - ./config.toml:/app/config.toml:ro
     environment:
       - DB_CONNECTION_URI=postgresql+psycopg://postgres:postgres@database:5432/postgres
       - CACHE_URL=redis://redis:6379/0?suppress=true
       - CACHE_ENABLED=true
+      - OPENAI_API_KEY=dummy
     env_file:
       - path: .env
         required: false
@@ -62,10 +61,13 @@ services:
     # volumes:
     #   - .:/app
     #   - venv:/app/.venv
+    volumes:
+      - ./config.toml:/app/config.toml:ro
     environment:
       - DB_CONNECTION_URI=postgresql+psycopg://postgres:postgres@database:5432/postgres
       - CACHE_URL=redis://redis:6379/0?suppress=true
       - CACHE_ENABLED=true
+      - OPENAI_API_KEY=dummy
     env_file:
       - path: .env
         required: false
