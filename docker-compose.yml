@@ -119,7 +119,7 @@ services:
         condition: service_healthy
     environment:
       # nginx reverse-proxies /v3 and /health to this upstream (the Honcho API).
-      HONCHO_UPSTREAM: ${HONCHO_UPSTREAM:-http://host.docker.internal:8182}
+      HONCHO_UPSTREAM: ${HONCHO_UPSTREAM:-http://host.docker.internal:8080}
       # The SPA defaults its Honcho base URL to its own origin, so requests flow
       # through the proxy above — no browser CORS, token never leaves the origin.
       OPENCONCHO_DEFAULT_HONCHO_URL: same-origin
