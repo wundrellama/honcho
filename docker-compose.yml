@@ -109,7 +109,28 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-
+  
+  openconcho:
+    image: ghcr.io/offendingcommit/openconcho-web:latest
+    # Or build from this repo instead of pulling the published image:
+    # build: .
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      # nginx reverse-proxies /v3 and /health to this upstream (the Honcho API).
+      HONCHO_UPSTREAM: ${HONCHO_UPSTREAM:-http://host.docker.internal:8182}
+      # The SPA defaults its Honcho base URL to its own origin, so requests flow
+      # through the proxy above — no browser CORS, token never leaves the origin.
+      OPENCONCHO_DEFAULT_HONCHO_URL: same-origin
+    ports:
+      - "8384:8080"
+    # Lets the default host.docker.internal upstream resolve on Linux too
+    # (Docker Desktop / Colima provide it automatically).
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    
   # -- Development: monitoring stack (uncomment to enable) --
   # prometheus:
   #   image: prom/prometheus:v3.2.1
